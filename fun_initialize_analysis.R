@@ -1,7 +1,5 @@
 initialize_analysis <-function(path){
   if (!file.exists(paste(path,"FUN_NORM_DATA",sep="/")))system(paste("mkdir",paste(path,"FUN_NORM_DATA",sep="/"), sep = " "))
-  }
-  
   if (!file.exists(paste(path,"RAW_DATA",sep="/")))              system(paste( "mkdir",paste(path,"RAW_DATA",sep="/"), sep = " "))
   if (!file.exists(paste(path,"PHENOTYPE_DATA",sep="/")))       system(paste( "mkdir",paste(path,"PHENOTYPE_DATA",sep="/"), sep = " "))
   if (!file.exists(paste(path,"ANNOTATION_DATA",sep="/")))       system(paste( "mkdir",paste(path,"ANNOTATION_DATA",sep="/"), sep = " "))
