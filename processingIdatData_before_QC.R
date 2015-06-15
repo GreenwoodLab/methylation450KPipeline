@@ -1,6 +1,6 @@
 source("methylation450KPipeline/fun_processingIdatData_before_QC.R")
 
-print(paste("Beginning the Idat data process of :"\n, Sys.time(),sep= ""))
+print(paste("Beginning the Idat data process of :", Sys.time(),sep= ""))
     
     #get the arguments from batch command line
     args <- commandArgs(trailingOnly = TRUE)
