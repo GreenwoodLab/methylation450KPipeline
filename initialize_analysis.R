@@ -1,6 +1,4 @@
 
-source("~/share/greenwood.group/Rscripts/methylation_R_scripts/fun_initialize_analysis.R")
-
 print(paste("Beginning of the analysis :\n", Sys.time(),sep= ""))
  
 print("..Initialize the analysis: create the folder")
