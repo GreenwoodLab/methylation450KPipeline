@@ -1,4 +1,4 @@
-source("methylation_R_scripts/fun_processingIdatData_before_QC.R")
+source("methylation450KPipeline/fun_processingIdatData_before_QC.R")
 
 print(paste("Beginning the Idat data process of :"\n, Sys.time(),sep= ""))
     
