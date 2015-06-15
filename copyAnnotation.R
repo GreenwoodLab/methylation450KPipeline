@@ -1,9 +1,7 @@
 #script for methylation pipeline analysis
 #february 2014
 #voisin greg - Greenwood lab- ldi
-
 ################################################################################
-source("fun_copyAnnotation.R")
 
 print(paste("Beginning of copy of Annotation :\n", Sys.time(),sep= ""))
 
