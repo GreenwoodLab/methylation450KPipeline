@@ -3,8 +3,6 @@
 #voisin greg - Greenwood lab- ldi
 
 ################################################################################
-source("fun_copyIDAT_sampleSheet.R")
-
 print(paste("Beginning of copy of IDAT file and samplesheet :\n", Sys.time(),sep= ""))
 
     #get the arguments from batch command line
