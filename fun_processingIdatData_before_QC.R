@@ -15,7 +15,7 @@ processingIdatData_before_QC <- function(path, server){
 
 #read the sampleSheet and IDAT data
   targets          <- read.450k.sheet(paste(getwd(),path,"IDAT", sep= "/"), pattern = "csv$", ignore.case = TRUE)
-  RGset            <- read.450k.exp  (base = paste(getwd(),path,"IDAT", sep= "/"), targets = targets,  extended = TRUE)
+  RGset            <- read.450k.exp  (base = NULL, targets = targets,  extended = TRUE)
 
 #write the raw data in  Raw data folder
   raw_data         <- preprocessRaw(RGset)                 #all the raw methylation data
