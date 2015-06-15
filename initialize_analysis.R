@@ -1,6 +1,5 @@
+source("methylation450KPipeline/fun_initialize_analysis.R") 
 
-print(paste("Beginning of the analysis :\n", Sys.time(),sep= ""))
- 
 print("..Initialize the analysis: create the folder")
 
     #get the arguments from batch command line
