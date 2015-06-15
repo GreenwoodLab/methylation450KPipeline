@@ -14,8 +14,8 @@ processingIdatData_before_QC <- function(path, server){
   require(wateRmelon, lib.loc = LIB_METH)
 
 #read the sampleSheet and IDAT data
-  targets          <- read.450k.sheet(paste(path,"IDAT", sep= "/"))
-  RGset            <- read.450k.exp  (base = paste(path,"IDAT", sep= "/"), targets = targets,  extended = TRUE)
+  targets          <- read.450k.sheet(paste(getwd(),path,"IDAT", sep= "/"))
+  RGset            <- read.450k.exp  (base = paste(getwd(),path,"IDAT", sep= "/"), targets = targets,  extended = TRUE)
 
 #write the raw data in  Raw data folder
   raw_data         <- preprocessRaw(RGset)                 #all the raw methylation data
