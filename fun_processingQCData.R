@@ -368,21 +368,21 @@ processingQCData <- function(path, server){
 
   QC_value_PARAMETER = cbind(sample_ID = names(dyebias),STATUT_VALUE,QC_value_PARAMETER,QC_value_STATUT)
 
-  #read the covariables files to associate Covariable to the result of the QC.
-    if (file.exists(paste(path,"COVARIABLE_DATA/CovariableModified.csv", sep= "/"))){
-      covariables_file <- read.csv2(paste(path,"COVARIABLE_DATA/CovariableModified.csv", sep= "/"), sep= "," ,header = T)
-    }else{
-      covariables_file <- read.csv2(paste(path,"COVARIABLE_DATA/Covariable.csv", sep= "/"), sep= "," ,header = T)
-    }#end of if
-	Sample_ID = paste(covariables_file$Sentrix_ID,covariables_file$Sentrix_Position, sep= "_")
-	covariables_file = cbind(Sample_ID, covariables_file)
-
-  #for test
-  #save(QC_value_PARAMETER, file = "QC_value_PARAMETER.RData")
-  #save(covariables_file,   file = "covariables_file.RData")
-
-   QC_value_PARAMETER = merge(QC_value_PARAMETER, covariables_file , by.x =  "sample_ID", by.y = "Sample_ID")
-   QC_value_PARAMETER = QC_value_PARAMETER[order(as.numeric(as.vector(QC_value_PARAMETER$STATUT_VALUE)) ,decreasing = F),]
+ #   #read the covariables files to associate Covariable to the result of the QC.
+#     if (file.exists(paste(path,"COVARIABLE_DATA/CovariableModified.csv", sep= "/"))){
+#       covariables_file <- read.csv2(paste(path,"COVARIABLE_DATA/CovariableModified.csv", sep= "/"), sep= "," ,header = T)
+#     }else{
+#       covariables_file <- read.csv2(paste(path,"COVARIABLE_DATA/Covariable.csv", sep= "/"), sep= "," ,header = T)
+#     }#end of if
+# 	Sample_ID = paste(covariables_file$Sentrix_ID,covariables_file$Sentrix_Position, sep= "_")
+# 	covariables_file = cbind(Sample_ID, covariables_file)
+# 
+#   #for test
+#   #save(QC_value_PARAMETER, file = "QC_value_PARAMETER.RData")
+#   #save(covariables_file,   file = "covariables_file.RData")
+# 
+#    QC_value_PARAMETER = merge(QC_value_PARAMETER, covariables_file , by.x =  "sample_ID", by.y = "Sample_ID")
+#    QC_value_PARAMETER = QC_value_PARAMETER[order(as.numeric(as.vector(QC_value_PARAMETER$STATUT_VALUE)) ,decreasing = F),]
 
    # write the result of the QC in order of the QC value ( more the QC value is hight, more the QC is better
    write.csv(QC_value_PARAMETER, paste(path, "QC_REPORT/QC_value_summary.csv", sep = "/"),quote = F,  eol = "\n", row.names = F)
