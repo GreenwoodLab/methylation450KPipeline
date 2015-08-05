@@ -1,0 +1,92 @@
+---
+title: "Result of Quality Control"
+author: "Lady Davis Institute"
+output: html_document
+---
+
+This is an html document presenting the result of this methylation experiment.
+
+## Bisulfite conversion control
+
+These controls assess the efficiency of bisulfite conversion of the genomic DNA. The Infinium Methylation probes query a [C/T] polymorphism created by bisulfite conversion of non-CpG cytosines in the genome.  
+*Bisulfite conversion control I*: These controls use the Infinium I probe design and allele-specific single base extension to monitor efficiency of bisulfite conversion. If the bisulfite conversion reaction was successful, the ”C” (Converted) probes will match the converted sequence and be extended. If the sample has unconverted DNA, the ”U” (Unconverted) probes will be extended.
+
+![alt text](BISULFITE_CONVERSION_I.svg)
+
+
+There are no underlying C bases in the primer landing sites, except for the query site itself. Performance of bisulfite conversion controls C1, C2, and C3 should be monitored in the Green channel, and controls C4, C5, and C6 should be monitored in Red channel.  
+*Bisulfite conversion control II*: These controls use Infinium II probe design and single base extension to monitor the efficiency of bisulfite conversion. If the bisulfite conversion reaction was successful, the ”A” base will be incorporated and the probe will have intensity in the Red channel. If the sample has unconverted DNA, the ”G” base will be incorporated across the unconverted cytosine, and the probe will have elevated signal in the Green channel.
+
+![alt text](BISULFITE_CONVERSION_II.svg)
+
+## Specificity Controls
+Specificity controls are designed to monitor potential non-specific primer extension for Infinium I and Infinium II assay probes. Specificity controls are
+designed against nonpolymorphic T sites.
+
+*Specificity I*: These controls are designed to monitor allele-specific extension for Infinium I probes.The methylation status of a particular cytosine is
+carried out following bisulfite treatment of DNA through the use of query probes for unmethylated and methylatedstate of each CpG locus. In assay
+oligo design, the A/T match corresponds to the unmethylated status of the interrogated C, and the G/C match corresponds to the methylated status of C. G/T mismatch controls check for non-specific detection of methylation signal over unmethylated background. PM controls correspond to A/T perfect match and should give high signal. MM controls correspond to G/T mismatch and should give low signal. Performance of GT Mismatch controls should be monitored in both green and red channels.  
+
+![alt text](SPECIFICITY_I.svg)
+
+*Specificity II*: These controls are designed to monitor extension specificity for Infinium II probes andcheck for potential non-specific detection of methylation signal over unmethylated background. Specificity II probes should incorporate the ”A” base across the nonpolymorphic T and have intensity in the Red channel. In case of non-specific incorporation of the ”G” base, the probe will have elevated signal in the Green channel.  
+
+![alt text](SPECIFICITY_II.svg)
+
+## Negative Controls
+Negative control probes are randomly permutated sequences that should not hybridize to the DNA template. Negative controls are particularly important for methylation studies because of a decrease in sequence complexity after bisulfite treatment. The mean signal of these probes defines the system background. This is a comprehensive measurement of background, including signal resulting from cross-hybridization, as well as non-specific extension and imaging system background. The Genome Studio platform uses the Average signal and standard deviation of 600 negative controls to establish detection limits for the methylation probes. Performance of negative controls should be monitored in both green and red channels.  
+
+## Detected CpG
+
+![alt text](Detected_CpG.svg)
+
+## Extension
+
+![alt text](EXTENSION.svg)
+
+## Hybridization
+
+![alt text](HYBRIDIZATION.svg)
+
+## MAD score
+
+![alt text](MADSCORE.svg)
+
+## Non polymorphic
+
+![alt text](NON_POLYMORPHIC.svg)
+
+## Normalization Probes
+
+![alt text](NORMALIZATION_PROBES.svg)
+
+## Staining
+
+![alt text](STAINING.svg)
+
+
+## TARGET_REMOVAL
+
+![alt text](TARGET_REMOVAL.svg)
+
+
+
+## QC summary
+
+![alt text](STATUT_VALUE.svg)
+
+
+```{r, echo=F}
+library(DT)
+mydata = read.csv("QC_value_summary.csv")
+
+mytable = datatable(mydata)
+mytable
+```
+
+
+
+
+
+
+
