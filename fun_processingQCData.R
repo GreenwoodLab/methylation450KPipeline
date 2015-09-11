@@ -11,8 +11,8 @@ processingQCData <- function(path, server){
 	  require(minfi, lib.loc = LIB_METH  )
 
       #load R script
-       #load R script
-      source("~/methylation450KPipeline/extractFromRGSet450k.R")
+      source(paste(Sys.getenv("PIPELINE_450K"),"/extractFromRGSet450k.R",sep=""))
+      #source("~/methylation450KPipeline/extractFromRGSet450k.R")
       #source("/home/data1/homeldi/greg.voisin/share/greenwood.group/Rscripts/methylation_R_scripts/extractFromRGSet450k.R")
       
     #load R objects
