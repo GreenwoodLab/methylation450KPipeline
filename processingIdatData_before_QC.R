@@ -1,4 +1,4 @@
-source("methylation450KPipeline/fun_processingIdatData_before_QC.R")
+source(paste(Sys.getenv("PIPELINE_450K"),"/fun_processingIdatData_before_QC.R",sep=""))
 
 print(paste("Beginning the Idat data process of :", Sys.time(),sep= ""))
     
