@@ -1,4 +1,4 @@
-source("fun_processingQCData.R")
+source(paste(Sys.getenv("PIPELINE_450K"),"/fun_processingQCData.R",sep=""))
 
 print(paste("Beginning the Quality Control of the Idat data :\n", Sys.time(),sep= ""))
     
