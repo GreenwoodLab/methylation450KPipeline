@@ -7,7 +7,7 @@ processingIdatData_after_QC <- function(path, server, samplename){
 
    require(minfi, lib.loc = LIB_METH )
 
-  if(is.NULL(samplename)){
+  if(is.null(samplename)){
     stop("no sample are excluded of the analysis")
   }else{
     exclusionSampleVector <- unlist(strsplit(samplename, ";"))
