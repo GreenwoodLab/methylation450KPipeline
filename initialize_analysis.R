@@ -1,4 +1,4 @@
-source("methylation450KPipeline/fun_initialize_analysis.R") 
+source(paste(Sys.getenv("PIPELINE_450K"), "/fun_initialize_analysis.R", sep="")) 
 
 print("..Initialize the analysis: create the folder")
 
