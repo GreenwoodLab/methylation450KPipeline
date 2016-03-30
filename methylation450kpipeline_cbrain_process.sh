@@ -8,15 +8,16 @@
 
 
 # NOTE REMOVED OUTPUT ! PUT IN RUBY PART
-# input  = $1
-# output = $2
+# input     = $1
+# output    = $2
+# threshold = $3
 
 # Removed sslVerify for git
 # git config --global http.sslVerify false
 # git clone https://github.com/GreenwoodLab/methylation450KPipeline.git $PIPELINE_450K
 
 # In this case it's the second pass
-if [ -d "$1/IDAT" ]
+if [ -d "$2/IDAT" ]
 then
   rsync -a -v $1 $2
 else
