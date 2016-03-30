@@ -1,17 +1,21 @@
-processingIdatData_after_QC <- function(path, server, samplename, nb_exclusion){
+processingIdatData_after_QC <- function(path, server, cutoff=23){
  #load library
  if (server=="distant"){
 	  LIB_METH = NULL
 	  }else{
 	  LIB_METH = "~/share/greenwood.group/Rlibs/methylationR3.1"}
-
+	  
+  #identify failed samples
+    tmp                   <-read.csv(file.path(path,"QC_REPORT/QC_value_summary.csv"),as.is=T)
+    exclusionSampleVector <- tmp$sample_ID[which(tmp$STATUT_VALUE<cutoff)]
+    nb_exclusion          <-length(exclusionSampleVector)
+    
    require(minfi, lib.loc = LIB_METH )
 
   if(nb_exclusion ==0){
     stop("no sample are excluded of the analysis")
   }else{
-    exclusionSampleVector <- unlist(strsplit(samplename, ";"))
-    targets               <- read.450k.sheet(paste(path,"IDAT", sep= "/"))
+    targets <- read.450k.sheet(paste(path,"IDAT", sep= "/"))
 
     exclusion_pos = NULL
     for (i in 1:nb_exclusion){
