@@ -17,7 +17,7 @@
 # git clone https://github.com/GreenwoodLab/methylation450KPipeline.git $PIPELINE_450K
 
 # In this case it's the second pass
-if [ -d "$2/IDAT" ]
+if [ -d "$1/IDAT" ]
 then
   rsync -a -v $1 $2
 else
