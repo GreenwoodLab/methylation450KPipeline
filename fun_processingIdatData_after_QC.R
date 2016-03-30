@@ -1,16 +1,20 @@
-processingIdatData_after_QC <- function(path, server, samplename){
+processingIdatData_after_QC <- function(path, server, cutoff=23){
  #load library
  if (server=="distant"){
 	  LIB_METH = NULL
 	  }else{
 	  LIB_METH = "~/share/greenwood.group/Rlibs/methylationR3.1"}
+	  
+  #identify failed samples
+    tmp                    <- read.csv(file.path(path,"QC_REPORT/QC_value_summary.csv"),as.is=T)
+    exclusionSampleVector <- tmp$sample_ID[which(tmp$STATUT_VALUE<cutoff)]
+    nb_exclusion           <- length(exclusionSampleVector)
 
    require(minfi, lib.loc = LIB_METH )
 
-  if(is.null(samplename)){
+  if(is.null(exclusionSampleVector)){
     stop("no sample are excluded of the analysis")
   }else{
-    exclusionSampleVector <- unlist(strsplit(samplename, ";"))
     targets               <- read.450k.sheet(paste(path,"IDAT", sep= "/"))
 
     exclusion_pos = NULL
@@ -22,7 +26,7 @@ processingIdatData_after_QC <- function(path, server, samplename){
 
     #write the Fun_Norm data in normalize data folder
     FunNorm_data_bckdyeAdj_after_QC       <- preprocessFunnorm(RGset_after_QC,sex = NULL,, verbose=T)           
-	  FunNorm_data_NobckdyeAdj_after_QC     <- preprocessFunnorm(RGset_after_QC,sex = NULL, verbose=T, bgCorr = FALSE, dyeCorr = FALSE)          
+    FunNorm_data_NobckdyeAdj_after_QC     <- preprocessFunnorm(RGset_after_QC,sex = NULL, verbose=T, bgCorr = FALSE, dyeCorr = FALSE)          
     FunNorm_Bvalue_bckdyeAdj_after_QC     <- getBeta(FunNorm_data_bckdyeAdj_after_QC)                     
     FunNorm_Bvalue_NobckdyeAdj_after_QC   <- getBeta(FunNorm_data_NobckdyeAdj_after_QC)                         
     save(FunNorm_Bvalue_bckdyeAdj_after_QC, file = paste(path,"FUN_NORM_DATA/FunNorm_Bvalue_bckdyeAdj_after_QC.RData", sep = "/"))
