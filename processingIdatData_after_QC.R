@@ -14,14 +14,16 @@ processingIdatData_after_QC <- function(path, server, cutoff=23){
 
   if(nb_exclusion ==0){
   sink(file.path(path,"DOCUMENTATION/readme.txt"),append = TRUE)
-  	cat("no samples were excluded from current analysis")
+  	cat("The threshold for the current analysis was set at", cutoff, "\n")
+  	cat("All samples were above threshold therefore no samples were excluded from current analysis /n")
   sink()
     stop("no sample are excluded of the analysis")
   }else{
     targets <- read.450k.sheet(paste(path,"IDAT", sep= "/"))
     sink(file.path(path,"DOCUMENTATION/readme.txt"),append = TRUE)
-    	 cat("The threshold for the current analysis was set at", cutoff)
-  	 cat("The following samples had a statut value below the cutoff and were excluded from current analysis:", exclusionSampleVector)
+    	 cat("The threshold for the current analysis was set at", cutoff, "\n")
+  	 cat("The following samples had a statut value below the cutoff and were excluded from current analysis:\n")
+  	 print(exclusionSampleVector)
     sink()
     
     exclusion_pos = NULL
