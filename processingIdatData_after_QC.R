@@ -15,7 +15,7 @@ processingIdatData_after_QC <- function(path, server, cutoff=23){
   if(nb_exclusion ==0){
   sink(file.path(path,"DOCUMENTATION/readme.txt"),append = TRUE)
   	cat("The threshold for the current analysis was set at", cutoff, "\n")
-  	cat("All samples were above threshold therefore no samples were excluded from current analysis /n")
+  	cat("All samples were above threshold therefore no samples were excluded from current analysis \n")
   sink()
     stop("no sample are excluded of the analysis")
   }else{
