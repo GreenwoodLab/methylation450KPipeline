@@ -7,7 +7,7 @@ processingIdatData_after_QC <- function(path, server, cutoff=23){
 	  
   #identify failed samples
     tmp                    <- read.csv(file.path(path,"QC_REPORT/QC_value_summary.csv"),as.is=T)
-    exclusionSampleVector <- tmp$sample_ID[which(tmp$STATUT_VALUE<cutoff)]
+    exclusionSampleVector <- tmp$sample_ID[which(tmp$STATUT_VALUE<as.numeric(cutoff))]
     nb_exclusion           <- length(exclusionSampleVector)
 
    require(minfi, lib.loc = LIB_METH )
