@@ -59,6 +59,10 @@ Rscript /tmp/packages_bioc.R
 echo 'install.packages(c("httpuv", "devtools", "matrixStats", "RColorBrewer", "shiny", "rmarkdown", "knitr", "DT"), repos= "http://cran.us.r-project.org")' > /tmp/packages.R
 Rscript /tmp/packages.R
 
+# chmod
+chmod 755 /methylation450KPipeline
+chmod 755 /methylation450KPipeline/methylation450kpipeline_cbrain_process.sh
+
 %environment
 PIPELINE_450K=/methylation450KPipeline
 PATH=$PATH:$PIPELINE_450K
